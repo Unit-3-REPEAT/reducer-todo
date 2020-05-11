@@ -12,7 +12,7 @@ export const initialState =
 
 //Set up basic reducer
 export const reducer = (state, action) => {
-    console.log(`Hello from reducer`);
+    // console.log(`Hello from reducer`);
 
     switch(action.type){
         case "ADD_NEW_TODO":
@@ -20,7 +20,17 @@ export const reducer = (state, action) => {
                 ...state, 
                 action.payload                
             ]
+
+        case "CLEAR_COMPLETED":
+           return state.filter((item) => {return !item.completed}); 
+
+        case "COMPLETED_TODO":
+            return state.map((item) => {
+                // console.log(`item -->`, item)
+                return item.id === action.payload ? {...item, completed: !item.completed} : item
+            })   
        
+        
         default:
             return state;
     }

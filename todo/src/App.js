@@ -31,13 +31,22 @@ const App = () => {
     }
 
 
+    const clearCompleted = () => {
+      dispatch({type:"CLEAR_COMPLETED"})
+    }
+
+    const completedTodo = (id) => {
+      dispatch({type: "COMPLETED_TODO", payload: id});
+    }
+
+
   return (
     <div className="App">  
        {/* pass down the function addTodo to form*/}
-      <Form addTodo={addTodo}/>
+      <Form addTodo={addTodo} clearCompleted={clearCompleted}/>
 
       {/* pass down the state to the TodoList component */}
-      <TodoList state={state}/>
+      <TodoList state={state} completedTodo={completedTodo} />
     </div>
   );
 }

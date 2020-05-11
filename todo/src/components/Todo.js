@@ -2,10 +2,23 @@ import React from 'react';
 
 
 const Todo = (props) => {
-  console.log(`this is props inside Todo`, props.newTodo )
+  console.log(`this is props inside Todo`, props)
+
+  const onClickToggle = (e) => {
+    e.preventDefault();
+    props.completedTodo(props.item.id);
+  }
+
+
   return (
     <div>
-         <p>{props.newTodo.todo}</p>
+         <h4 
+         className={props.item.completed ? 'complete' : ''}
+         onClick={onClickToggle}
+         >
+           {props.item.todo}
+         </h4>
+
     </div>
   );
 }

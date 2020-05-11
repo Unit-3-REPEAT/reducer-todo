@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
 const Form = (props) => {
-    console.log(`props inside Form -->`,props)
+    // console.log(`props inside Form -->`,props)
 
-    const [inputText, setInputText] = useState('')
+    const [inputText, setInputText] = useState('');
 
     //handle input changes
     const handleInputChanges = (event) => {
@@ -21,6 +21,12 @@ const Form = (props) => {
         setInputText("")
     }
 
+    //On button click CLEAR
+    const clearTodoOnClick = (event) => {
+        event.preventDefault();
+        props.clearCompleted();
+    }
+
 
   return (
     <div>
@@ -33,7 +39,10 @@ const Form = (props) => {
                 value={inputText}                
                 onChange={handleInputChanges}
             />
+            <br/>
             <button type="submit">Add</button>
+            <br/>
+            <button onClick={clearTodoOnClick}>Clear</button>
         </form>
         
     </div>

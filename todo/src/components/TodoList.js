@@ -3,13 +3,19 @@ import Todo from './Todo';
 
 
 const TodoList = (props) => {
-  console.log(`this is props inside TodoList -->`, props.state)
+  // console.log(`this is props inside TodoList -->`, props.state)
   return (
     <div>
         <h3>This is Todolist:</h3>
         {props.state.map((todo) => {
           // console.log(todo);
-          return <Todo key={todo.id} newTodo={todo}/>
+          return(
+          <Todo
+          key={todo.id} 
+          item={todo} 
+          completedTodo={props.completedTodo}/>
+          )
+           
         })}
         
     </div>
