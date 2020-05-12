@@ -58,3 +58,13 @@ export const reducer = (state, action) => {
 // }
 
 
+//SOME NOTES
+
+//Create event handlers in App.js
+//Dispatch function sends the type and payload data to the reducer to do something with it
+//Keep in mind that some of event handlers will run inside other functions
+//such as clearCompleted() located inside (App.js)
+//will run inside clearTodoOnClick() inside (Form.js) when the user clicks on the button
+//After you create the event handlers think about 
+//when you need to run them and if needed in which function they need to be called
+
