@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../App.css';
 
 const Form = (props) => {
     // console.log(`props inside Form -->`,props)
@@ -31,7 +32,7 @@ const Form = (props) => {
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <h2>Add your to do here:</h2>
+            <h2 className="form-header">Add your to do here:</h2>
             <input 
                 name="todo"
                 placeholder="Type new todo"
